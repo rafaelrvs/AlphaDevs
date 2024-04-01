@@ -4,77 +4,87 @@ import { useState } from "react"
 import { Item } from "../Item/Item"
 export const Main = () => {
     const [itemSelecionado, SetItemSelecionado] = useState("")
+    const [ativaCampo, SetativaCampo] = useState(false)
     const imagem = [
         {
             id: 0,
             title: "Coringa",
-            descricao: "",
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
             url: "./c165a03d865bc067f8b94b0f05a43a55.jpeg",
-            Apresentacao: "Coringa 10CM Resina..."
+            Apresentacao: "Coringa 10CM Resina...",
+            valor:"10,25"
         },
         {
             id: 1,
             title: "Capitão America",
             url: "./c90e1c54e9da6063fb76da5cff460e33.jpeg",
-            descricao: "",
-            Apresentacao: "Capitão 15CM Resina..."
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+            Apresentacao: "Capitão 15CM Resina...",
+            valor:"15,25"
 
         },
         {
             id: 2,
             title: "Coringa",
-            descricao: "",
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
             url: "./c165a03d865bc067f8b94b0f05a43a55.jpeg",
-            Apresentacao: "Coringa 10CM Resina..."
+            Apresentacao: "Coringa 10CM Resina...",
+            valor:"10,25"
 
         },
         {
             id: 3,
             title: "Capitão America",
             url: "./c90e1c54e9da6063fb76da5cff460e33.jpeg",
-            descricao: "",
-            Apresentacao: "Capitão 15CM Resina..."
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+            Apresentacao: "Capitão 15CM Resina...",
+            valor:"15,25"
             
         },
         {
             id: 4,
             title: "Coringa",
-            descricao: "",
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
             url: "./c165a03d865bc067f8b94b0f05a43a55.jpeg",
-            Apresentacao: "Coringa 10CM Resina..."
+            Apresentacao: "Coringa 10CM Resina...",
+            valor:"10,25"
 
         },
         {
             id: 5,
             title: "Capitão America",
             url: "./c90e1c54e9da6063fb76da5cff460e33.jpeg",
-            descricao: "",
-            Apresentacao: "Capitão 15CM Resina..."
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+            Apresentacao: "Capitão 15CM Resina...",
+            valor:"15,25"
 
         },
         {
             id: 6,
             title: "Coringa",
-            descricao: "",
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
             url: "./c165a03d865bc067f8b94b0f05a43a55.jpeg",
-            Apresentacao: "Coringa 10CM Resina..."
+            Apresentacao: "Coringa 10CM Resina...",
+            valor:"10,25"
 
         },
         {
             id: 7,
             title: "Capitão America",
             url: "./c90e1c54e9da6063fb76da5cff460e33.jpeg",
-            descricao: "",
-            Apresentacao: "Capitão 15CM Resina..."
+            descricao: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+            Apresentacao: "Capitão 15CM Resina...",
+            valor:"15,25"
 
         },
     ]
 
-    const handleClick = (event) =>{
-        event.preventDefault()
-        const   itemSelecionado = event.target.attributes.content ;
+    const handleClick = (imagem) =>{
+     
+        const   itemSelecionado = imagem;
 
           SetItemSelecionado(itemSelecionado) ;
+          SetativaCampo(!ativaCampo) ;
     }
    
 
@@ -103,7 +113,12 @@ export const Main = () => {
 
                             <div className="container-btnImg">
                                 <p>{imagem.Apresentacao}</p>
-                                < input id="inputImg" type="button"  content={imagem.url} value ="Ver mais" onClick={handleClick}/>
+                                <input
+                                    id="inputImg"
+                                    type="button"
+                                    value="Ver mais"
+                                    onClick={() => handleClick(imagem)}
+                                />
                           
                             </div>
 
@@ -111,7 +126,7 @@ export const Main = () => {
 
                         </div>
                     ))}
-                    {itemSelecionado && <Item itemSelecionado={itemSelecionado}/>}
+                    {ativaCampo && <Item itemSelecionado={itemSelecionado} ativaCampo={SetativaCampo}   />}
 
 
                 </div>
